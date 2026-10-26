@@ -219,13 +219,10 @@ sudo -E PYTHONPATH="$FX30_DEPS:$FX30_DEPS/vendor" python3 code/fx30_burst.py --r
 - 本仓库不包含固件二进制或受版权保护内容；任何商业性使用、固件分发、绕过安全机制用于牟利的行为一律禁止。
 - 如 Sony 或其授权方要求，相关内容将立即下架。
 
-<details>
-<summary>支持本项目 ☕</summary>
+## 支持本项目 ☕
 
 如果本项目对你有所帮助，欢迎自愿支持后续研究（与开源内容无关）：
 
 | 微信 | 支付宝 |
 | --- | --- |
 | ![微信](code/assets/wechat-qr.png) | ![支付宝](code/assets/alipay-qr.png) |
-
-</details>
