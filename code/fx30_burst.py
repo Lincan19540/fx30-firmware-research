@@ -79,6 +79,8 @@ MAGIC = b'BK4\0'
 # 结论：菜单可见性不在 BK4 属性层。
 
 ALLOWED_OFFSETS = {0x8EF80, 0x91690}
+# 属性级放行：默认空（只按偏移放行）；如需按属性 id 放行，在这里显式加
+ALLOWED_PROP_IDS = set()
 # 单次会话允许改动的字节上限（超过即拒绝，防止手滑/脚本错）
 MAX_CHANGED_BYTES = 8
 LOG_PATH = None
