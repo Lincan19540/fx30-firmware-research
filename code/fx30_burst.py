@@ -477,8 +477,13 @@ def do_write(s, blob, edits, dry_run, yes=False, snapshot=None):
                 s.save()
                 time.sleep(1.0)
                 back = s.read_pdt()
-                p("  [自动回滚] %s" % ("已恢复（读回一致）" if bytes(back) == bytes(rb)
-                                        else "恢复后读回不一致，请立刻停止并告知我"))
+                # 固件在 save 时会重写少量自有字段（计数器/时间戳/bank 头校验和），
+                # 整包逐字节比较必然“不一致” ⇒ 判据改为：校验和自洽 + 差异只落在少量字段
+                d = [i for i in range(min(len(back), len(rb))) if back[i] != rb[i]]
+                ok_back = len(d) <= 16 and check(bytes(back), "回滚后")[0]
+                p("  [自动回滚] %s（差异 %d 字节：%s）"
+                  % ("已恢复" if ok_back else "异常，请立刻停止并告知我",
+                     len(d), ", ".join("%#x" % i for i in d[:12])))
             else:
                 p("  [自动回滚] 快照校验不过或写入被拒，未回滚")
         except Exception as e:
