@@ -226,6 +226,6 @@ sudo -E PYTHONPATH="$FX30_DEPS:$FX30_DEPS/vendor" python3 code/fx30_burst.py --r
 
 | 微信 | 支付宝 |
 | --- | --- |
-| ![微信](assets/wechat-qr.png) | ![支付宝](assets/alipay-qr.png) |
+| ![微信](code/assets/wechat-qr.png) | ![支付宝](code/assets/alipay-qr.png) |
 
 </details>
